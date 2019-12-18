@@ -60,6 +60,14 @@ end
   playerAnimator.playing -- bool
   playerAnimator.frameWidth -- number
   playerAnimator.frameHeight -- number
+  playerAnimator.currentAnimation = {
+    name = 'string',
+    start = 'number', -- defaults to 1
+    frame = 'number', -- defaults to 1
+    frameDuration = 'number', -- defaults to 0.1
+    speed = 'number', -- defaults to 1
+    ending = 'number',
+  }
 
   -- it *must* receive the dt parameter to calculate the time between each frame accordingly to the previous defined speed
   playerAnimator:update(dt)
