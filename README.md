@@ -2,7 +2,7 @@
 
 ![](sample.gif)
 
-Love sheet animator is a simple animator library responsible for holding animations created from one sprite-sheet, making easy the animations management.
+Love sprite-sheet animator is a simple animator library responsible for holding animations created from one sprite-sheet, making easy the animations management.
 
 ## Example
 
@@ -43,10 +43,10 @@ end
     Starts playing animation 'name'
     reset is meant to start animation from it first frame
     if your animation to play is different from the previous one, the reset will occur even with reset set to false
-  ]]-
+  ]]--
   playerAnimator:play(name, reset = false)
 
-  -- [[
+  --[[
     pause() method just pauses the animation, keeping the last rendered frame
     stop() method stops and return the animation to it's start
     if play() is called after pause(), the animation will continue from where it was interrupted
