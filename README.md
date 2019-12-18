@@ -55,6 +55,12 @@ end
   playerAnimator:pause()
   playerAnimation:stop()
 
+  -- Useful Animator variables
+
+  playerAnimator.playing -- bool
+  playerAnimator.frameWidth -- number
+  playerAnimator.frameHeight -- number
+
   -- it *must* receive the dt parameter to calculate the time between each frame accordingly to the previous defined speed
   playerAnimator:update(dt)
 
