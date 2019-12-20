@@ -143,10 +143,10 @@ function Animator:stop()
   self.currentAnimation.frame = self.currentAnimation.start
 end
 
-function Animator:draw(x, y)
+function Animator:draw(x, y, ox, oy, r, sx, sy)
   if (self.currentAnimation.name) then
     -- Then we simply draw based on it's specific frame quad and it automagically will render the correct frame
-    love.graphics.draw(self.sprite, self.quads[self.currentAnimation.frame], x, y)
+    love.graphics.draw(self.sprite, self.quads[self.currentAnimation.frame], x, y, r or 0, sx or 1, sy or 1, ox or 0, oy or 0)
   end
 end
 

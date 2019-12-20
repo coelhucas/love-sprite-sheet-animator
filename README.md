@@ -73,5 +73,6 @@ end
   playerAnimator:update(dt)
 
   -- draws your sprite, be it animated or not at the defined position
-  playerAnimator:draw(x, y)
+  -- the parameters are the same of love.graphics.draw, with an order change: https://love2d.org/wiki/love.graphics.draw
+  playerAnimator:draw(x, y, ox = 0, oy = 0, r = 0, sx, sy)
 ```
