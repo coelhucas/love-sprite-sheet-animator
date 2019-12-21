@@ -55,8 +55,11 @@ end
   playerAnimator:pause()
   playerAnimation:stop()
 
+  playerAnimator:setMirrored(bool) -- to mirror horizontally your sprites
+
   -- Useful Animator variables
 
+  playerAnimator.mirrored -- bool
   playerAnimator.playing -- bool
   playerAnimator.frameWidth -- number
   playerAnimator.frameHeight -- number

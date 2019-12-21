@@ -36,6 +36,7 @@ function Animator.new(sprite, hframes, vframes)
   animator.currentAnimation = {}
   animator.animations = {}
   animator.quads = {}
+  animator.mirrored = false
 
   local spriteDimensions = sprite:getDimensions()
 
@@ -119,6 +120,10 @@ function Animator:update(dt)
   end
 end
 
+function Animator:setMirrored(value)
+  self.mirrored = value
+end
+
 function Animator:play(animationName, reset)
   -- To start our animation from it's first time. If the new animation is different from the previous one, it'll be done anyway.
   reset = reset or false
@@ -145,8 +150,9 @@ end
 
 function Animator:draw(x, y, ox, oy, r, sx, sy)
   if (self.currentAnimation.name) then
+    modifier = self.mirrored and -1 or 1
     -- Then we simply draw based on it's specific frame quad and it automagically will render the correct frame
-    love.graphics.draw(self.sprite, self.quads[self.currentAnimation.frame], x, y, r or 0, sx or 1, sy or 1, ox or 0, oy or 0)
+    love.graphics.draw(self.sprite, self.quads[self.currentAnimation.frame], x, y, r or 0, (sx or 1) * modifier, sy or 1, ox or 0, oy or 0)
   end
 end
 
