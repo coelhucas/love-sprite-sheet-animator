@@ -11,8 +11,9 @@ local LSA = require 'lsa'
 
 function love.load()
   playerSprite = love.graphics.newImage("player.png")
-  -- Creates a new animator for the 'player.png' sprite-sheet, which have 12 frames (horizontally) and 7 frames (vertically)
-  animator = LSA.new(playerSprite, 12, 7)
+  -- Creates a new animator for the 'player.png' sprite-sheet, which have 12 frames (horizontally) and 7 frames (vertically).
+  -- Filter is an optional parameter, which have it's defaults to 'nearest'
+  animator = LSA.new(playerSprite, 12, 7, filter='nearest')
   -- Creates a new animation called idle which start in frame 1 and ends in frame 6
   animator:newAnimation('idle', 1, 6)
 end
