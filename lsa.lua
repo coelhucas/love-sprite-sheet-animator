@@ -26,7 +26,7 @@ local mtAnimator = { __index = Animator }
 local Animation = {}
 local mtAnimation = { __index = Animation }
 
-function Animator.new(sprite, hframes, vframes)
+function Animator.new(sprite, hframes, vframes, filter)
   local animator = {}
   animator.sprite = sprite
   animator.playing = false
@@ -38,6 +38,7 @@ function Animator.new(sprite, hframes, vframes)
   animator.quads = {}
   animator.mirrored = false
 
+  sprite:setFilter(filter or 'nearest', filter or nearest)
   local spriteDimensions = sprite:getDimensions()
 
   for vindex = 0, vframes  - 1 do
