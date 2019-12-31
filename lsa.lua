@@ -97,7 +97,7 @@ function Animator:update(dt)
     local existingFrames = table.getn(self.quads)
     local nextframe = self.currentAnimation.frame + 1
     -- We must prevent the user of trying to render a non existent frame
-    if (self:isBeyondFrameLimits(nextframe)) then
+    if (self:isBeyondFrameLimits(self.currentAnimation.frame)) then
       error('Trying to access a frame greater than the total sprite-sheet frames amount.')
     end
 
@@ -150,10 +150,14 @@ function Animator:stop()
 end
 
 function Animator:draw(x, y, ox, oy, r, sx, sy)
+  if (self:isBeyondFrameLimits(self.currentAnimation.frame)) then
+      error('Trying to draw a frame greater than the total sprite-sheet frames amount.')
+    end
+
   if (self.currentAnimation.name) then
     modifier = self.mirrored and -1 or 1
     -- Then we simply draw based on it's specific frame quad and it automagically will render the correct frame
-    love.graphics.draw(self.sprite, self.quads[self.currentAnimation.frame], x, y, r or 0, (sx or 1) * modifier, sy or 1, ox or 0, oy or 0)
+    love.graphics.draw(self.sprite, self.quads[self.currentAnimation.frame], x - (modifier * self.frameWidth/2), y - self.frameHeight / 2, r or 0, (sx or 1) * modifier, sy or 1, ox or 0, oy or 0)
   end
 end
 
