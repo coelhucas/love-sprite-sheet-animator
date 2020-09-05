@@ -81,3 +81,7 @@ end
   -- OBS.: x and y will be the center of your animated sprite
   playerAnimator:draw(x, y, ox = 0, oy = 0, r = 0, sx, sy)
 ```
+
+## Limitation
+
+Be aware that this API only supports sprite sheets that every frame has the same size, since it will slice the image based on the received `h_frames` and `v_frames` value.
